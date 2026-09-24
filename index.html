@@ -50,37 +50,47 @@
             padding-bottom: 15px;
         }
 
-        /* صندوق عرض الفيلسوف والنص */
+        /* صندوق عرض النص والرمز البديل للصور */
         .quote-box {
             background-color: #0f172a;
             border-right: 4px solid #ef4444;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 24px 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            transition: all 0.3s ease;
         }
 
-        /* صورة الفيلسوف */
-        .avatar-img {
-            width: 110px;
-            height: 110px;
+        /* الرمز الفلسفي التعبيري بديل الصور */
+        .icon-badge {
+            font-size: 48px;
+            background-color: #1e293b;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #38bdf8;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            border: 2px solid #38bdf8;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* اسم الفيلسوف */
-        .author-name {
+        /* وسام اسم الفيلسوف */
+        .author-tag {
+            background-color: #1e293b;
             color: #38bdf8;
-            font-size: 15px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: bold;
-            margin-top: 4px;
+            border: 1px solid #334155;
         }
 
+        /* نص المقولة الفلسفية */
         .quote-text {
             color: #e2e8f0;
             font-size: 16px;
@@ -88,6 +98,16 @@
             font-weight: 400;
             text-align: right;
             width: 100%;
+        }
+
+        /* تأثير الظهور والانتقال التدريجي */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* أزرار التفاعل */
@@ -107,6 +127,11 @@
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn-main:hover {
+            background-color: #dc2626;
         }
 
         .btn-copy {
@@ -138,13 +163,13 @@
         <h1>رابط 2026</h1>
         <p class="subtitle">صوت الواقع.. كفّ عن المهرجة والاستجداء</p>
 
-        <!-- صندوق المحتوى -->
-        <div class="quote-box">
-            <!-- صورة الفيلسوف والمفكر المباشرة المضمونة -->
-            <img id="quote-img" class="avatar-img" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&auto=format&fit=crop&q=80" alt="صورة الفيلسوف">
+        <!-- صندوق المحتوى المصمم بدون صور -->
+        <div id="quote-box" class="quote-box">
+            <!-- أيقونة فلسفية بديلة للصورة -->
+            <div id="quote-icon" class="icon-badge">🏛️</div>
             
-            <!-- اسم الفيلسوف -->
-            <div id="author-name" class="author-name">الفيلسوف سقراط</div>
+            <!-- وسام اسم الفيلسوف -->
+            <div id="author-name" class="author-tag">سقراط</div>
 
             <!-- النص الصارم -->
             <p id="quote" class="quote-text">تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.</p>
@@ -162,41 +187,49 @@
     </div>
 
     <script>
-        // مصفوفة البيانات المحتوية على النصوص واسم الفيلسوف وروابط صور موثوقة ومضمونة 100%
+        // مصفوفة البيانات المقترنة بالأيقونات الفلسفية بدلاً من الصور
         const dataList = [
             {
-                author: "الفيلسوف سقراط",
-                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.",
-                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&auto=format&fit=crop&q=80"
+                icon: "🏛️",
+                author: "سقراط",
+                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق."
             },
             {
-                author: "الفيلسوف أرسطو",
-                text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك.",
-                image: "https://images.unsplash.com/photo-1563089145-599997674d42?w=400&auto=format&fit=crop&q=80"
+                icon: "📜",
+                author: "أرسطو",
+                text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك."
             },
             {
-                author: "الفيلسوف فريدريك نيتشه",
-                text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج.",
-                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=400&auto=format&fit=crop&q=80"
+                icon: "⚔️",
+                author: "فريدريك نيتشه",
+                text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج."
             },
             {
-                author: "الفيلسوف آرثر شوبنهاور",
-                text: "ليس كل فراغ بحاجة لنكتة بايخة أو صراخ أهوج. عندما لا تجد ما تقوله، فالصمت هو أعظم رد وأرقى حضور. أما التخبط والكلام لمجرد ملء الفراغ فهو دليل على خفة العقل وليس وسامة الطبع.",
-                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&auto=format&fit=crop&q=80"
+                icon: "⚖️",
+                author: "آرثر شوبنهاور",
+                text: "ليس كل فراغ بحاجة لنكتة بايخة أو صراخ أهوج. عندما لا تجد ما تقوله، فالصمت هو أعظم رد وأرقى حضور. أما التخبط والكلام لمجرد ملء الفراغ فهو دليل على خفة العقل وليس وسامة الطبع."
             }
         ];
 
-        // دالة تحديث النص والصورة عشوائياً عند النقر على الزر
+        // دالة تحديث النص والأيقونة مع إضافة تأثير افتراضي ناعم
         function generateQuote() {
+            const quoteBox = document.getElementById("quote-box");
             const quoteElement = document.getElementById("quote");
-            const imgElement = document.getElementById("quote-img");
+            const iconElement = document.getElementById("quote-icon");
             const authorElement = document.getElementById("author-name");
             
+            // اختيار حكمة عشوائية
             const randomIndex = Math.floor(Math.random() * dataList.length);
             const selectedData = dataList[randomIndex];
 
+            // إضافة تأثير اختفاء وظهور
+            quoteBox.classList.remove("fade-in");
+            void quoteBox.offsetWidth; // إجبار المتصفح على إعادة تطبيق الحركة
+            quoteBox.classList.add("fade-in");
+
+            // تحديث المحتوى
             quoteElement.innerText = selectedData.text;
-            imgElement.src = selectedData.image;
+            iconElement.innerText = selectedData.icon;
             authorElement.innerText = selectedData.author;
         }
 
@@ -204,10 +237,10 @@
         function copyQuote() {
             const quoteText = document.getElementById("quote").innerText;
             const authorName = document.getElementById("author-name").innerText;
-            const textToCopy = `${quoteText}\n- ${authorName}`;
+            const fullTextToCopy = `"${quoteText}"\n- ${authorName}`;
 
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert("تم نسخ الحكمة بنجاح!");
+            navigator.clipboard.writeText(fullTextToCopy).then(() => {
+                alert("تم نسخ النص والحكمة بنجاح!");
             }).catch(err => {
                 console.error("خطأ في النسخ: ", err);
             });
