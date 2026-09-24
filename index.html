@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رابط 2026 | حقيقة بدون تجميل</title>
+    
+    <style>
+        /* إعادة ضبط الخصائص والتنسيق */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* حاوية بطاقة المحتوى */
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px 24px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: #38bdf8;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+        }
+
+        /* صندوق عرض الحكم والنصائح */
+        .quote-box {
+            background-color: #0f172a;
+            border-right: 4px solid #ef4444;
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+        }
+
+        .quote-text {
+            color: #e2e8f0;
+            font-size: 16px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* زر التفاعل */
+        .btn {
+            background-color: #ef4444;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background border-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #dc2626;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>رابط 2026</h1>
+        <p class="subtitle">صوت الواقع.. بعيداً عن التهرج والعفوية المصنوعة</p>
+
+        <!-- المربع الذي يظهر فيه النص -->
+        <div class="quote-box">
+            <p id="quote" class="quote-text">اضغط على الزر أدناه لتستمع إلى كلمة حق لا تجامل أحداً.</p>
+        </div>
+
+        <!-- زر التفاعل لجلب نص جديد -->
+        <button class="btn" onclick="generateQuote()">تلقَّ الحقيقة</button>
+
+        <footer>
+            رابط 2026 &copy; الوقار ليس خياراً، بل ثمن احترامك لنفسك.
+        </footer>
+    </div>
+
+    <script>
+        // مصفوفة الأقوال والنصائح بأسلوب ونبرة فاروق
+        const adviceList = [
+            "أيها العزيز.. إن قيمة المرء لا تقاس بعدد القهقهات التي يستجدى وجودها في مجلس، بل بالهيبة التي تفرضها استكانته وصمته. عندما تجعل من نفسك أرغوزاً يحاول انتزاع الضحكات بأي طريقة سخيفة، فأنت لا تضحكهم معك، بل تمنحهم رخصة مجانية للضحك عليك. ارزن، فالرزانة لم تنقص من قدر رجل قط.",
+            "دعني أصارحك دون مساحيق تجميل: العفوية التي تتصنعها وتدعيها جهاراً نهاراً ليست طيبة قلب ولا براءة، بل هي قلة هيبة وتعدٍّ صارخ على الذوق العام. الشخص النضيج يعرف متى يتكلم ومتى يصمت، أما محاولة استعراض الخفة والعبث في كل محفل، فهي سلوك يثير الشفقة قبل الاستهجان.",
+            "يا هذا.. توقف عن الاستماتة لتبدو الشخص المضحك واللطيف في المجموعة. هذا الركض المهروج خلف انتباه الناس يجرّدك من إنسانيتك وكرامتك. كن ثقيلاً، فالشيء الثقيل لا تجرفه الأهواء، أما الخفيف فتطيره أدنى نفخة هواء ولا يترك أثراً سوى الغبار.",
+            "ليس عليك أن تملأ كل فراغ في المجلس بنكتة باهتة أو حركات لا تليق بسنّك ومقامك. الصمت في كثير من الأحيان يكون أبلغ وأعظم حضوراً من ألف كلمة سخيفة. تعلم كيف تحمل قدرك بوقار، فالمجالس لم تُبنَ للمهرجين وإنما للرجال.",
+            "إن العفوية الحقيقية تخرج بعفوية ودون إعداد، أما أن تمارس السخافة وتسميها 'عفوية' لتبرر بها جهلك بحدود الأدب، فهذا خدع لنفسك قبل غيرك. اسمعها مني: استفق قبل أن يبتعد عنك العقلاء ولا يبقى حولك إلا من يتسلى بضعفك."
+        ];
+
+        // دالة اختيار النص العشوائي وتحديث العناصر
+        function generateQuote() {
+            const quoteElement = document.getElementById("quote");
+            const randomIndex = Math.floor(Math.random() * adviceList.length);
+            quoteElement.innerText = adviceList[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
