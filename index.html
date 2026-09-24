@@ -6,7 +6,7 @@
     <title>رابط 2026 | حقيقة بدون تجميل</title>
     
     <style>
-        /* إعادة ضبط الخصائص والتنسيق */
+        /* إعادة ضبط القواعد الأساسية */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -24,13 +24,13 @@
             padding: 20px;
         }
 
-        /* حاوية بطاقة المحتوى */
+        /* حاوية البطاقة الرئيسية */
         .card {
             background-color: #1e293b;
             border: 1px solid #334155;
             border-radius: 16px;
             padding: 30px 24px;
-            max-width: 600px;
+            max-width: 550px;
             width: 100%;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             text-align: center;
@@ -50,18 +50,27 @@
             padding-bottom: 15px;
         }
 
-        /* صندوق عرض الحكم والنصائح */
+        /* صندوق عرض الصورة والنص */
         .quote-box {
             background-color: #0f172a;
             border-right: 4px solid #ef4444;
-            padding: 22px;
+            padding: 20px;
             border-radius: 8px;
-            margin-bottom: 25px;
-            min-height: 140px;
+            margin-bottom: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: right;
+            gap: 15px;
+        }
+
+        /* تنسيق الصورة الدلالية */
+        .avatar-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ef4444;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .quote-text {
@@ -69,10 +78,18 @@
             font-size: 16px;
             line-height: 1.8;
             font-weight: 400;
+            text-align: right;
+            width: 100%;
         }
 
-        /* زر التفاعل */
-        .btn {
+        /* تنسيق الأزرار */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .btn-main {
             background-color: #ef4444;
             color: #ffffff;
             border: none;
@@ -82,14 +99,21 @@
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background border-color 0.2s;
         }
 
-        .btn:hover {
-            background-color: #dc2626;
+        .btn-copy {
+            background-color: #334155;
+            color: #38bdf8;
+            border: 1px solid #475569;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
         }
 
-        .btn:active {
+        .btn-main:active, .btn-copy:active {
             transform: scale(0.98);
         }
 
@@ -104,36 +128,71 @@
 
     <div class="card">
         <h1>رابط 2026</h1>
-        <p class="subtitle">صوت الواقع.. بعيداً عن التهرج والعفوية المصنوعة</p>
+        <p class="subtitle">صوت الواقع.. كفّ عن المهرجة والاستجداء</p>
 
-        <!-- المربع الذي يظهر فيه النص -->
+        <!-- صندوق المحتوى -->
         <div class="quote-box">
-            <p id="quote" class="quote-text">اضغط على الزر أدناه لتستمع إلى كلمة حق لا تجامل أحداً.</p>
+            <!-- الصورة الدلالية للمهرج/العفوي المصنوع -->
+            <img id="quote-img" class="avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="صورة دلالية">
+            
+            <!-- النص الصارم -->
+            <p id="quote" class="quote-text">اضغط على الزر أدناه لتستمع إلى الحقيقة الصريحة بدون مساحيق.</p>
         </div>
 
-        <!-- زر التفاعل لجلب نص جديد -->
-        <button class="btn" onclick="generateQuote()">تلقَّ الحقيقة</button>
+        <!-- أزرار التفاعل -->
+        <div class="button-group">
+            <button class="btn-main" onclick="generateQuote()">تلقَّ الواقع</button>
+            <button class="btn-copy" onclick="copyQuote()">نسخ النص</button>
+        </div>
 
         <footer>
-            رابط 2026 &copy; الوقار ليس خياراً، بل ثمن احترامك لنفسك.
+            رابط 2026 &copy; الرزانة ليست خياراً، بل ثمن احترامك لنفسك.
         </footer>
     </div>
 
     <script>
-        // مصفوفة الأقوال والنصائح بأسلوب ونبرة فاروق
-        const adviceList = [
-            "أيها العزيز.. إن قيمة المرء لا تقاس بعدد القهقهات التي يستجدى وجودها في مجلس، بل بالهيبة التي تفرضها استكانته وصمته. عندما تجعل من نفسك أرغوزاً يحاول انتزاع الضحكات بأي طريقة سخيفة، فأنت لا تضحكهم معك، بل تمنحهم رخصة مجانية للضحك عليك. ارزن، فالرزانة لم تنقص من قدر رجل قط.",
-            "دعني أصارحك دون مساحيق تجميل: العفوية التي تتصنعها وتدعيها جهاراً نهاراً ليست طيبة قلب ولا براءة، بل هي قلة هيبة وتعدٍّ صارخ على الذوق العام. الشخص النضيج يعرف متى يتكلم ومتى يصمت، أما محاولة استعراض الخفة والعبث في كل محفل، فهي سلوك يثير الشفقة قبل الاستهجان.",
-            "يا هذا.. توقف عن الاستماتة لتبدو الشخص المضحك واللطيف في المجموعة. هذا الركض المهروج خلف انتباه الناس يجرّدك من إنسانيتك وكرامتك. كن ثقيلاً، فالشيء الثقيل لا تجرفه الأهواء، أما الخفيف فتطيره أدنى نفخة هواء ولا يترك أثراً سوى الغبار.",
-            "ليس عليك أن تملأ كل فراغ في المجلس بنكتة باهتة أو حركات لا تليق بسنّك ومقامك. الصمت في كثير من الأحيان يكون أبلغ وأعظم حضوراً من ألف كلمة سخيفة. تعلم كيف تحمل قدرك بوقار، فالمجالس لم تُبنَ للمهرجين وإنما للرجال.",
-            "إن العفوية الحقيقية تخرج بعفوية ودون إعداد، أما أن تمارس السخافة وتسميها 'عفوية' لتبرر بها جهلك بحدود الأدب، فهذا خدع لنفسك قبل غيرك. اسمعها مني: استفق قبل أن يبتعد عنك العقلاء ولا يبقى حولك إلا من يتسلى بضعفك."
+        // مصفوفة الكائنات (تحتوي على النص ورابط الصورة المرافقة)
+        const dataList = [
+            {
+                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+            },
+            {
+                text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك.",
+                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80"
+            },
+            {
+                text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج.",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80"
+            },
+            {
+                text: "ليس كل فراغ بحاجة لنكتة بايخة أو صراخ أهوج. عندما لا تجد ما تقوله، فالصمت هو أعظم رد وأرقى حضور. أما التخبط والكلام لمجرد ملء الفراغ فهو دليل على خفة العقل وليس وسامة الطبع.",
+                image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80"
+            }
         ];
 
-        // دالة اختيار النص العشوائي وتحديث العناصر
+        // دالة تحديث النص والصورة عشوائياً
         function generateQuote() {
             const quoteElement = document.getElementById("quote");
-            const randomIndex = Math.floor(Math.random() * adviceList.length);
-            quoteElement.innerText = adviceList[randomIndex];
+            const imgElement = document.getElementById("quote-img");
+            
+            // اختيار عنصر عشوائي
+            const randomIndex = Math.floor(Math.random() * dataList.length);
+            const selectedData = dataList[randomIndex];
+
+            // تحديث العناصر في الـ HTML
+            quoteElement.innerText = selectedData.text;
+            imgElement.src = selectedData.image;
+        }
+
+        // دالة النسخ
+        function copyQuote() {
+            const quoteText = document.getElementById("quote").innerText;
+            navigator.clipboard.writeText(quoteText).then(() => {
+                alert("تم نسخ النص بنجاح!");
+            }).catch(err => {
+                console.error("خطأ في النسخ: ", err);
+            });
         }
     </script>
 
