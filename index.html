@@ -6,7 +6,7 @@
     <title>رابط 2026 | حقيقة بدون تجميل</title>
     
     <style>
-        /* إعادة ضبط القواعد الأساسية */
+        /* إعادة ضبط القواعد والتنسيق الأساسي */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -63,14 +63,14 @@
             gap: 15px;
         }
 
-        /* تنسيق الصورة الدلالية */
+        /* تنسيق صورة الميمز والأنمي/الفلاسفة */
         .avatar-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
             object-fit: cover;
             border: 2px solid #ef4444;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
         .quote-text {
@@ -82,7 +82,7 @@
             width: 100%;
         }
 
-        /* تنسيق الأزرار */
+        /* أزرار التفاعل */
         .button-group {
             display: flex;
             gap: 10px;
@@ -132,8 +132,8 @@
 
         <!-- صندوق المحتوى -->
         <div class="quote-box">
-            <!-- الصورة الدلالية للمهرج/العفوي المصنوع -->
-            <img id="quote-img" class="avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="صورة دلالية">
+            <!-- الصورة البدائية (صورة تمثال فيلسوف) -->
+            <img id="quote-img" class="avatar-img" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=300&auto=format&fit=crop&q=80" alt="صورة دلالية">
             
             <!-- النص الصارم -->
             <p id="quote" class="quote-text">اضغط على الزر أدناه لتستمع إلى الحقيقة الصريحة بدون مساحيق.</p>
@@ -151,23 +151,23 @@
     </div>
 
     <script>
-        // مصفوفة الكائنات (تحتوي على النص ورابط الصورة المرافقة)
+        // مصفوفة البيانات (تحتوي على النص الصارم ورابط صورة ميمز/فيلسوف مرافقة)
         const dataList = [
             {
                 text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=300&auto=format&fit=crop&q=80" // صورة تمثال فيلسوف مفكر
             },
             {
                 text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك.",
-                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80"
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=300&auto=format&fit=crop&q=80" // صورة لوحة كلاسيكية حزينة
             },
             {
                 text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج.",
-                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80"
+                image: "https://images.unsplash.com/photo-1563089145-599997674d42?w=300&auto=format&fit=crop&q=80" // صورة معبرة عن الذهول والواقع
             },
             {
                 text: "ليس كل فراغ بحاجة لنكتة بايخة أو صراخ أهوج. عندما لا تجد ما تقوله، فالصمت هو أعظم رد وأرقى حضور. أما التخبط والكلام لمجرد ملء الفراغ فهو دليل على خفة العقل وليس وسامة الطبع.",
-                image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80"
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300&auto=format&fit=crop&q=80" // صورة تعبيرية عن التفكير العميق
             }
         ];
 
@@ -176,16 +176,14 @@
             const quoteElement = document.getElementById("quote");
             const imgElement = document.getElementById("quote-img");
             
-            // اختيار عنصر عشوائي
             const randomIndex = Math.floor(Math.random() * dataList.length);
             const selectedData = dataList[randomIndex];
 
-            // تحديث العناصر في الـ HTML
             quoteElement.innerText = selectedData.text;
             imgElement.src = selectedData.image;
         }
 
-        // دالة النسخ
+        // دالة نسخ النص
         function copyQuote() {
             const quoteText = document.getElementById("quote").innerText;
             navigator.clipboard.writeText(quoteText).then(() => {
