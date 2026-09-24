@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رابط 2026 | صوت الحكم والرزانة</title>
+    <title>رابط 2026 | صوت الواقع والرزانة</title>
     
     <style>
         /* إعادة ضبط القواعد والتنسيق الأساسي */
@@ -50,7 +50,7 @@
             padding-bottom: 15px;
         }
 
-        /* صندوق عرض الفيلسوف والنص */
+        /* صندوق عرض الصورة والنص */
         .quote-box {
             background-color: #0f172a;
             border-right: 4px solid #ef4444;
@@ -60,24 +60,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        /* صورة الفيلسوف */
+        /* تنسيق صورة الفيلسوف */
         .avatar-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
             object-fit: cover;
-            border: 2px solid #38bdf8;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        /* اسم الفيلسوف */
-        .author-name {
-            color: #38bdf8;
-            font-size: 15px;
-            font-weight: bold;
+            border: 2px solid #ef4444;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
         .quote-text {
@@ -135,23 +128,20 @@
 
     <div class="card">
         <h1>رابط 2026</h1>
-        <p class="subtitle">صوت الفلسفة والواقع.. كفّ عن التهرج والاستجداء</p>
+        <p class="subtitle">صوت الواقع.. كفّ عن المهرجة والاستجداء</p>
 
         <!-- صندوق المحتوى -->
         <div class="quote-box">
-            <!-- صورة الفيلسوف -->
+            <!-- الصورة البدائية - صورة الفيلسوف الأولى -->
             <img id="quote-img" class="avatar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Socrates_Louvre.jpg/300px-Socrates_Louvre.jpg" alt="صورة الفيلسوف">
             
-            <!-- اسم الفيلسوف -->
-            <div id="author-name" class="author-name">سقراط</div>
-
             <!-- النص الصارم -->
-            <p id="quote" class="quote-text">تكلم حتى أراك.. أما الصراخ والتصنع وحركات المهرجين فلا تعكس إلا فراغاً باطنياً يحتاج إلى علاج.</p>
+            <p id="quote" class="quote-text">تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.</p>
         </div>
 
         <!-- أزرار التفاعل -->
         <div class="button-group">
-            <button class="btn-main" onclick="generateQuote()">تلقَّ الواقع الفلسفي</button>
+            <button class="btn-main" onclick="generateQuote()">تلقَّ الواقع</button>
             <button class="btn-copy" onclick="copyQuote()">نسخ النص</button>
         </div>
 
@@ -161,54 +151,42 @@
     </div>
 
     <script>
-        // مصفوفة البيانات (تحتوي على النص، اسم الفيلسوف، ورابط صورته)
+        // مصفوفة البيانات المحتوية على صور الفلاسفة الثلاث المرفقة مع النصوص
         const dataList = [
             {
-                author: "سقراط",
-                text: "تكلم حتى أراك.. الصمت والوقار هما زينة العقل، أما محاولة إضحاك الناس بالحرَكات السخيفة والعفوية المصنوعة فهي اعتراف صريح بضآلة عقلك وعدم قدرتك على فرض احترامك بالمنطق والرزانة.",
+                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.",
+                // الصورة الأولى: تمثال رأس الفيلسوف الحكيم
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Socrates_Louvre.jpg/300px-Socrates_Louvre.jpg"
             },
             {
-                author: "فريدريك نيتشه",
-                text: "إن استجداء إعجاب الدهماء عن طريق السخافة والتمثيل ليس سوى انحطاط للذات. من يضع قناع المهرج ليحصل على ضحكة رخيصة يبيع كرامته بالمجان، ويصبح أداة لتسلية الآخرين لا أكثر.",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche1872.jpg/300px-Nietzsche1872.jpg"
+                text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك.",
+                // الصورة الثانية: لوحة موقف الفيلسوف الصارم
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/300px-David_-_The_Death_of_Socrates.jpg"
             },
             {
-                author: "آرثر شوبنهاور",
-                text: "كلما كان المرء خالي الفكر والروح، كلما مال إلى الضجيج والعفوية المبتذلة ليشعر بوجوده. الإنسان العظيم يكتفي بذاته ويهاب الابتذال، أما التهرّج فهو ملجأ من لا يستطيع الصمود مع عقله.",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arthur_Schopenhauer_by_J_S_Biewener_crop.jpg/300px-Arthur_Schopenhauer_by_J_S_Biewener_crop.jpg"
-            },
-            {
-                author: "أرسطو",
-                text: "الاعتدال والوقار هما رأس الفضيلة. إن السخافة الزائدة ليست خفة ظل بل هي نقص في الأدب والحكمة. من لا يعرف كيف يضبط لسانه وحركاته في المجالس يقلل من قدره أمام العقلاء.",
+                text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج.",
+                // الصورة الثالثة: التمثال الكلاسيكي للفيلسوف المفكر
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/300px-Aristotle_Altemps_Inv8575.jpg"
             }
         ];
 
-        // دالة تحديث النص والصورة واسم الفيلسوف عشوائياً
+        // دالة تحديث النص والصورة عشوائياً عند النقر على الزر
         function generateQuote() {
             const quoteElement = document.getElementById("quote");
             const imgElement = document.getElementById("quote-img");
-            const authorElement = document.getElementById("author-name");
             
-            // اختيار عنصر عشوائي من المصفوفة
             const randomIndex = Math.floor(Math.random() * dataList.length);
             const selectedData = dataList[randomIndex];
 
-            // تحديث العناصر في الـ HTML
             quoteElement.innerText = selectedData.text;
             imgElement.src = selectedData.image;
-            authorElement.innerText = selectedData.author;
         }
 
-        // دالة نسخ النص
+        // دالة نسخ النص إلى الحافظة
         function copyQuote() {
             const quoteText = document.getElementById("quote").innerText;
-            const authorName = document.getElementById("author-name").innerText;
-            const fullTextToCopy = `"${quoteText}"\n- ${authorName}`;
-
-            navigator.clipboard.writeText(fullTextToCopy).then(() => {
-                alert("تم نسخ الحكمة بنجاح!");
+            navigator.clipboard.writeText(quoteText).then(() => {
+                alert("تم نسخ النص بنجاح!");
             }).catch(err => {
                 console.error("خطأ في النسخ: ", err);
             });
