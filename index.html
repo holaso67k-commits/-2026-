@@ -50,7 +50,7 @@
             padding-bottom: 15px;
         }
 
-        /* صندوق عرض النص والرمز البديل للصور */
+        /* صندوق عرض النص فقط بدون صور */
         .quote-box {
             background-color: #0f172a;
             border-right: 4px solid #ef4444;
@@ -59,24 +59,9 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 15px;
+            align-items: flex-start;
+            gap: 12px;
             transition: all 0.3s ease;
-        }
-
-        /* الرمز الفلسفي التعبيري بديل الصور */
-        .icon-badge {
-            font-size: 48px;
-            background-color: #1e293b;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-            border: 2px solid #38bdf8;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         /* وسام اسم الفيلسوف */
@@ -88,6 +73,7 @@
             font-size: 14px;
             font-weight: bold;
             border: 1px solid #334155;
+            align-self: flex-start;
         }
 
         /* نص المقولة الفلسفية */
@@ -100,7 +86,7 @@
             width: 100%;
         }
 
-        /* تأثير الظهور والانتقال التدريجي */
+        /* تأثير الحركة عند التغيير */
         .fade-in {
             animation: fadeIn 0.4s ease-in-out;
         }
@@ -163,16 +149,13 @@
         <h1>رابط 2026</h1>
         <p class="subtitle">صوت الواقع.. كفّ عن المهرجة والاستجداء</p>
 
-        <!-- صندوق المحتوى المصمم بدون صور -->
+        <!-- صندوق المحتوى الخالي من الصور -->
         <div id="quote-box" class="quote-box">
-            <!-- أيقونة فلسفية بديلة للصورة -->
-            <div id="quote-icon" class="icon-badge">🏛️</div>
-            
             <!-- وسام اسم الفيلسوف -->
             <div id="author-name" class="author-tag">سقراط</div>
 
             <!-- النص الصارم -->
-            <p id="quote" class="quote-text">تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق.</p>
+            <p id="quote" class="quote-text">تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، واستخفاف يسقط قيمتك في دقائق.</p>
         </div>
 
         <!-- أزرار التفاعل -->
@@ -187,49 +170,43 @@
     </div>
 
     <script>
-        // مصفوفة البيانات المقترنة بالأيقونات الفلسفية بدلاً من الصور
+        // مصفوفة البيانات التي تحتوي فقط على اسم الفيلسوف والنص بدون أي صور
         const dataList = [
             {
-                icon: "🏛️",
                 author: "سقراط",
-                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، والاستخفاف يسقط قيمتك في دقائق."
+                text: "تتضاحك وتفتعل الحركات الهستيرية لتلفت الأنظار، ثم تتساءل في سرّك لماذا لا يتعامل معك أحد بجدية؟ انظر إلى منظرك، أنت لا تبدو 'عفوياً' أو 'مرحاً'، أنت تبدو كشخص يستجدي الانتباه بأي ثمن. الثقل هيبة، واستخفاف يسقط قيمتك في دقائق."
             },
             {
-                icon: "📜",
                 author: "أرسطو",
                 text: "العفوية التي تُعدّ لها مسبقاً وتفرضها على الحاضرين في كل مجلس ليست طيبة، بل هي قلة احترام وحماقة مجردة. الصمت والوقار لم يضعفا شخصية أحد قط، لكن التهرّج ومحاولة إضحاك القوم غصباً تجعلك مسخرة الجلسة بعد مغادرتك."
             },
             {
-                icon: "⚔️",
                 author: "فريدريك نيتشه",
                 text: "توقف عن لعب دور 'الأحمق السعيد' في المجموعة. تحسب أنهم يحبون خفة دمك، بينما الحقيقة أنهم يجدون فيك وسيلة للتسلية المجانية. ارزن واستعد كرامتك، فالمجالس بُنيت للرجال ولصاحب الموقف، لا لمن يرتدي قناع المهرج."
             },
             {
-                icon: "⚖️",
                 author: "آرثر شوبنهاور",
                 text: "ليس كل فراغ بحاجة لنكتة بايخة أو صراخ أهوج. عندما لا تجد ما تقوله، فالصمت هو أعظم رد وأرقى حضور. أما التخبط والكلام لمجرد ملء الفراغ فهو دليل على خفة العقل وليس وسامة الطبع."
             }
         ];
 
-        // دالة تحديث النص والأيقونة مع إضافة تأثير افتراضي ناعم
+        // دالة تحديث النص واسم الفيلسوف
         function generateQuote() {
             const quoteBox = document.getElementById("quote-box");
             const quoteElement = document.getElementById("quote");
-            const iconElement = document.getElementById("quote-icon");
             const authorElement = document.getElementById("author-name");
             
             // اختيار حكمة عشوائية
             const randomIndex = Math.floor(Math.random() * dataList.length);
             const selectedData = dataList[randomIndex];
 
-            // إضافة تأثير اختفاء وظهور
+            // إعادة تشغيل حركية الظهور
             quoteBox.classList.remove("fade-in");
-            void quoteBox.offsetWidth; // إجبار المتصفح على إعادة تطبيق الحركة
+            void quoteBox.offsetWidth;
             quoteBox.classList.add("fade-in");
 
-            // تحديث المحتوى
+            // تحديث المحتوى النصي فقط
             quoteElement.innerText = selectedData.text;
-            iconElement.innerText = selectedData.icon;
             authorElement.innerText = selectedData.author;
         }
 
